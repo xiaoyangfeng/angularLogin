@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="mlab">
+<head>
+    <title>ShinyMain</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script>
+        angular.module("mlab", ["ngRoute"])
+                .config(function ($routeProvider) {
+
+                    $routeProvider.when("/login", {
+                        templateUrl: "views/userLogin.html"
+                    });
+
+                    $routeProvider.when("/main", {
+                        templateUrl: "views/main.html"
+                    });
+
+                    $routeProvider.otherwise({
+                        redirectTo: "/login"
+                    });
+                });
+    </script>
+    <script src="ngControllers/mlabAPI.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body>
+
+
+<div class="content">
+    <div ng-view></div>
+</div>
+</body>
+</html>
